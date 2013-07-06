@@ -10,4 +10,10 @@ jQuery( document ).ready( function( $ ) {
 
 	});
 
+	$( '.main li' ).on( 'click', function() {
+
+		$( this ).toggleClass( 'open' );
+
+	});
+
 });
