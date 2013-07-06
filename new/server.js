@@ -1,9 +1,28 @@
+// Built in
+var fs = require('fs');
+
+// HTTP server and templating system
 var express = require('express');
+var hbs     = require( 'hbs' );
+
+// Start server
 var app = express();
-app.configure(function () {
-    app.use(
-        "/", //the URL throught which you want to access to you static content
-        express.static(__dirname) //where your static content is located in your filesystem
-    );
+
+hbs.registerPartials( __dirname + '/views/partials' );
+
+// set the view engine to use handlebars
+app.set( 'view engine', 'html' );
+app.set('views', __dirname + '/views');
+
+app.engine( 'html', require( 'hbs' ).__express );
+
+// Load in public assets
+app.use(express.static(__dirname + '/assets'));
+
+// Render index view
+app.get('/', function(req, res) {
+
+    res.render('index');
 });
-app.listen(3000); //the port you want to use
+
+app.listen(3000);
