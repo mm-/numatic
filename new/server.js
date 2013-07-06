@@ -2,7 +2,7 @@
 var fs = require('fs');
 
 // HTTP server and templating system
-var express = require('express');
+var express = require( 'express' );
 var hbs     = require( 'hbs' );
 
 // Start server
@@ -22,7 +22,14 @@ app.use(express.static(__dirname + '/assets'));
 // Render index view
 app.get('/', function(req, res) {
 
-    res.render('index');
+	var databaseUrl = "mydb"; // "username:password@example.com/mydb"
+	var collections = ["testData"]
+	var db = require("mongojs").connect(databaseUrl, collections);
+
+	db.testData.find(function( data ) {
+	});
+
+	res.render( 'index', {data: ['who', 'are', 'you', 'anyway']});
 });
 
 app.listen(3000);
