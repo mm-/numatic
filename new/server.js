@@ -2,9 +2,12 @@
 var fs = require('fs');
 
 // HTTP server and templating system
-var express = require( 'express' );
-var hbs     = require( 'hbs' );
-var pages   = require( './pages' );
+var express  = require( 'express' );
+var hbs      = require( 'hbs' );
+var pages    = require( './routes/pages' );
+var media    = require( './routes/media' );
+var menus    = require( './routes/menus' );
+var settings = require( './routes/settings' );
 
 // Start server
 var app = express();
@@ -34,5 +37,8 @@ app.get('/', function(req, res) {
 });
 
 app.get( '/pages', pages.index );
+app.get( '/media', media.index );
+app.get( '/menus', menus.index );
+app.get( '/settings', settings.index );
 
 app.listen(3000);
