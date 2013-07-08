@@ -4,6 +4,7 @@ var fs = require('fs');
 // HTTP server and templating system
 var express = require( 'express' );
 var hbs     = require( 'hbs' );
+var pages   = require( './pages' );
 
 // Start server
 var app = express();
@@ -31,5 +32,7 @@ app.get('/', function(req, res) {
 
 	res.render( 'index', {data: ['who', 'are', 'you', 'anyway']});
 });
+
+app.get( '/pages', pages.index );
 
 app.listen(3000);
