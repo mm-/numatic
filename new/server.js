@@ -4,6 +4,7 @@ var fs = require('fs');
 // HTTP server and templating system
 var express  = require( 'express' );
 var hbs      = require( 'hbs' );
+var articles = require( './routes/articles' );
 var pages    = require( './routes/pages' );
 var media    = require( './routes/media' );
 var menus    = require( './routes/menus' );
@@ -36,6 +37,8 @@ app.get('/', function(req, res) {
 	res.render( 'index', {data: ['who', 'are', 'you', 'anyway']});
 });
 
+app.get( '/articles', articles.index );
+app.get( '/articles/new', articles.new_article );
 app.get( '/pages', pages.index );
 app.get( '/media', media.index );
 app.get( '/menus', menus.index );

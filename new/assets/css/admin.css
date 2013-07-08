@@ -38,6 +38,46 @@ strong {
 	font-weight: 600;
 }
 
+input[type="text"], textarea {
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	display: block;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.6em;
+	margin: 0 0 20px;
+	padding: 20px;
+	width: 100%;
+
+	-webkit-font-smoothing: antialiased;
+}
+
+input.new-article-title {
+	font-size: 3.0em;
+	font-weight: 200;
+}
+
+textarea {
+	height: 400px;
+	resize: vertical;
+}
+
+input:focus, textarea:focus {
+	outline: none;
+}
+
+::-webkit-input-placeholder {
+    color:    #89898a;
+}
+:-moz-placeholder {
+    color:    #89898a;
+}
+::-moz-placeholder {
+    color:    #89898a;
+}
+:-ms-input-placeholder {
+    color:    #89898a;
+}
+
 /* Sidebar */
 
 .sidebar {
